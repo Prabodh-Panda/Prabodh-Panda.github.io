@@ -1,0 +1,126 @@
+:root{
+    --BG: #263238;
+    --BG-Dark: #242529;
+    --accent: #69F0AE;
+    --text-color-primary: white;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+    color: inherit;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+nav{
+    display: flex;
+    height: 50px;
+    width: 100vw;
+    background-color: var(--BG);
+    align-items: center;
+    justify-content: space-between;
+    color: var(--text-color-primary);
+    padding: 10px;
+}
+
+ul{
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+}
+.navbar-item{
+    margin: 0 10px;
+}
+
+.active{
+    color: var(--accent);
+    text-decoration: underline;
+}
+
+.navbar-item:hover{
+    color: var(--accent);
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+main{
+    height: calc(100vh - 50px);
+    width: 100vw;
+    background-color: var(--BG);
+    color: var(--text-color-primary);
+    display: flex;
+}
+
+.job-title{
+    background-color: var(--accent);
+    font-size: 0.9rem;
+    text-align: center;
+    color: var(--BG);
+    padding: 2px;
+}
+
+.hero-text{
+    margin: 20px 0;
+    font-size: 2rem;
+}
+
+.hero-description{
+    font-weight: lighter;
+    opacity: 0.7;
+    margin-bottom: 100px;
+}
+
+.hero-link{
+    color: var(--accent);
+    text-decoration: underline;
+}
+
+.hero{
+    margin-left: 18%;
+    margin-top: -100px;
+    align-self: center;
+}
+
+.stats{
+    align-self: center;
+    margin-left: 150px;
+}
+
+.progress-bar{
+    height: 5px;
+    width: 40vw;
+    background-color: var(--BG-Dark);
+    position: relative;
+    border-radius: 2px;
+    overflow: hidden;
+    margin-left: 10px;
+}
+
+.progress-bar-fill{
+    height: 100%;
+    background-color: var(--accent);
+}
+
+.skill-set{
+    margin: 20px;
+    height: 50px;
+    display: flex;
+}
+
+.skill-name{
+    font-weight: lighter;
+    opacity: 0.8;
+    margin: 6px;
+}
+
+.skill-logo{
+    height: 50px;
+    width: 50px;
+    float: left;
+    border-radius: 50%;
+}
