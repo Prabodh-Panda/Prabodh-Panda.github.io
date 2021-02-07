@@ -3,6 +3,7 @@
     --BG-Dark: #242529;
     --accent: #69F0AE;
     --text-color-primary: white;
+    --BG-transparent: rgba(38,50,56,0.7);
 }
 
 *{
@@ -15,6 +16,9 @@
 
 body{
     font-family: Arial, Helvetica, sans-serif;
+    background: url('bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 nav{
@@ -48,12 +52,19 @@ ul{
     transform: scale(1.1);
 }
 
+.social-item:hover{
+    color: var(--accent);
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
 main{
     height: calc(100vh - 50px);
     width: 100vw;
-    background-color: var(--BG);
+    background-color: var(--BG-transparent);
     color: var(--text-color-primary);
     display: flex;
+    animation: slide-in 1s;
 }
 
 .job-title{
@@ -84,6 +95,7 @@ main{
     margin-left: 18%;
     margin-top: -100px;
     align-self: center;
+    opacity: 0;
 }
 
 .stats{
@@ -104,6 +116,8 @@ main{
 .progress-bar-fill{
     height: 100%;
     background-color: var(--accent);
+    transform-origin: left;
+    animation: progress-bar-fill-animation 1s ease-in-out;
 }
 
 .skill-set{
@@ -123,4 +137,90 @@ main{
     width: 50px;
     float: left;
     border-radius: 50%;
+}
+
+.invisible{
+    display: none;
+}
+
+#dropdown{
+    display: none;
+    width: 100vw;
+    background: var(--BG);
+    color: white;
+    float: right;
+}
+
+#dropdown:hover{
+    cursor: pointer;
+}
+
+#dropdown h1{
+    width: 40px;
+    background-color: var(--BG-Dark);
+    text-align: center;
+    transform: rotateX(180deg);
+    margin-top: -10px;
+    float: right;
+}
+
+@media (max-width: 768px){
+    main{
+        flex-direction: column;
+    }
+    nav{
+        flex-direction: column;
+        height: 100%;
+        display: none;
+    }
+    .navbar-branding{
+        margin-bottom: 10px;
+    }
+    .navbar-list{
+        margin-bottom: 10px;
+    }
+    .hero,.stats{
+        margin: 20px;
+        align-self: flex-start;
+    }
+    .hero-description{
+        margin-bottom: 10px;
+    }
+    .skill-set{
+        margin: 10px;
+    }
+    #dropdown{
+        display: block;
+    }
+}
+
+@keyframes progress-bar-fill-animation{
+    from{
+        transform: scaleX(0);
+    }
+    to{
+        transform: scaleX(1);
+    }
+}
+
+@keyframes slide-in{
+    from{
+        opacity: 0;
+        margin-left: -150vw;
+    }
+
+    to{
+        opacity: 1;
+        margin: initial;
+    }
+}
+
+@keyframes slide-up{
+    from{
+        opacity: 0;
+    }
+
+    to{
+        opacity: 1;
+    }
 }
