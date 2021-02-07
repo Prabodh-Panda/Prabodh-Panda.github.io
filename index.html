@@ -7,19 +7,20 @@
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <nav>
+    <div id="dropdown"><h1 onclick="dropdownClicked()" id="dropdownH1">^</h1></div>
+    <nav id="nav-container">
         <span class="navbar-branding"><strong>Prabodh</strong>Panda</span>
         <ul class="navbar-list">
-            <li class="navbar-item active">Home</li>
-            <li class="navbar-item">My Works</li>
-            <li class="navbar-item">Contact Me</li>
+            <li class="navbar-item active"><a>Home</a></li>
+            <li class="navbar-item"><a>My Works</a></li>
+            <li class="navbar-item"><a>Contact Me</a></li>
         </ul>
         <ul class="social-list">
-            <li class="social-item">Github</li>
+            <li class="social-item"><a>Github</a></li>
         </ul>
     </nav>
-    <main>
-        <div class="hero">
+    <main id="main">
+        <div class="hero" id="hero">
             <span class="job-title">Full Stack Developer</span>
             <p class="hero-text">Stop talking,<br/>Show me the code.</p>
             <p class="hero-description">I help businesses establish their online identity.</p>
@@ -75,6 +76,28 @@
             </div>
         </div>
     </main>
-    <footer></footer>
+    <script>
+        let isOpen = false;
+        const nav = document.getElementById('nav-container');
+
+        const dropdownClicked = () => {
+            if(isOpen){
+                isOpen = !isOpen;
+                nav.style.display = 'none';
+                document.getElementById('dropdownH1').style.transform = 'rotateX(180deg)';
+            }else{
+                isOpen = !isOpen;
+                nav.style.display = 'flex';
+            }
+        }
+
+        //Detect when main animation is finsished and then play secondary animation
+        const main = document.getElementById('main');
+        const hero = document.getElementById('hero');
+        main.onanimationend = event => {
+            hero.style.animation = 'slide-up 0.5s';
+        }
+        hero.onanimationend = event => hero.style.opacity = '1';
+    </script>
 </body>
 </html>
